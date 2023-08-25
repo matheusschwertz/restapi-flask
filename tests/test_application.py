@@ -3,7 +3,7 @@ from application import create_app
 
 
 class TestApplication():
-    
+
     @pytest.fixture
     def client(self):
         app = create_app('config.MockConfig')
