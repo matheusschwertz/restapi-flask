@@ -77,7 +77,7 @@ class User(Resource):
 
         try:
             response = UserModel(**data).save()
-            return {"massage": "User %s seccessfuly created!" % response.id}
+            return {"massage": "User %s successfuly created!" % response.id}
         except NotUniqueError:
             return {"massage": "CPF already exist in database!"}, 400
 
