@@ -86,3 +86,16 @@ class User(Resource):
         if response:
             return jsonify(response)
         return {"massage": "User does not exist in database!"}, 400
+
+    def patch(self):
+        data = _user_parser.parse_args()
+
+        if not self.validate_cpf(data["cpf"]):
+            return {"massage": "CPF is invalid!"}, 400
+
+        response = UserModel.objects(cpf=data["cpf"])
+        if response:
+            response.update(**data)
+            return {"massage": "User updated!"}, 200
+        else:
+            return {"massage": "User does not exist in database!"}, 400
