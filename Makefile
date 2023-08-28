@@ -1,4 +1,4 @@
-APP = retapi
+APP = comundevops-restapi
 
 test:
 	@flake8 . --exclude .venv
@@ -11,5 +11,5 @@ compose:
 
 heroku:
 	@heroku container:login
-	@heroku container:push -a comundevops-restapi web
-	@heroku container:release -a comundevops-restapi web
+	@heroku container:push -a $(APP) web
+	@heroku container:release -a $(APP) web
