@@ -99,3 +99,12 @@ class User(Resource):
             return {"massage": "User updated!"}, 200
         else:
             return {"massage": "User does not exist in database!"}, 400
+
+    def delete(serf, cpf):
+        response = UserModel.objects(cpf=cpf)
+
+        if response:
+            response.delete()
+            return {"massage": "User deleted!"}, 200
+        else:
+            return {"massage": "User does not exist in database!"}, 400
