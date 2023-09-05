@@ -9,15 +9,13 @@ spec:
   selector:
     matchLabels:
       app: restapi-flask
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: restapi-flask
     spec:
       containers:
-      - image: restapi-flask
+      - image: restapi-flask:latest
         name: restapi-flask
         imagePullPolicy: IfNotPresent
         env:
