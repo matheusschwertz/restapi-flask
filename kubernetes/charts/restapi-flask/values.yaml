@@ -1,0 +1,24 @@
+replicaCount: 1
+
+appPort: 5000
+
+image:
+  registry: 836669374176.dkr.ecr.us-west-2.amazonaws.com/restapi
+  tag: latest
+
+environmentVariables:
+  - name: FLASK_ENV
+    value: development
+  - name: FLASK_ENV
+    value: development
+
+environmentVariablesFrom:
+  - secretRef:
+      name: mongodb-credentials
+
+livenessProbe: {}
+
+readinessProbe: {}
+
+ingress:
+  enabled: true
